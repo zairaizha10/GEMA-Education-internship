@@ -19,7 +19,7 @@
 <button id="themeToggle">🌙</button>
 
 <nav>
-    <div class="logo">Aarav Sharma</div>
+    <div class="logo" id="logoName">Portfolio</div>
 
     <div class="hamburger">
         <i class="fa-solid fa-bars"></i>
@@ -43,16 +43,10 @@
         class="profile"
         alt="Student Photo">
 
-        <h1 id="typing"></h1>
 
-        <p>
-            Grade 8 | Sunrise International School
-        </p>
+        <p id="heroGrade"></p>
 
-        <p>
-            Passionate about Mathematics, Coding,
-            Robotics and Scientific Innovation.
-        </p>
+        <p id="heroAbout"></p>
 
         <div class="hero-buttons">
 
@@ -77,27 +71,7 @@
 
     <h2>About Me</h2>
 
-    <div class="glass">
-
-        <h3>Aarav Sharma</h3>
-
-        <p><strong>Date of Birth:</strong> 12 May 2012</p>
-
-        <p><strong>Grade:</strong> 8</p>
-
-        <p><strong>School:</strong> Sunrise International School</p>
-
-        <p><strong>City:</strong> New Delhi, India</p>
-
-        <p><strong>Career Goal:</strong> Aerospace Engineer</p>
-
-        <p>
-            I enjoy solving mathematical problems,
-            building coding projects, public speaking
-            and participating in innovation competitions.
-        </p>
-
-    </div>
+    <div class="glass" id="aboutContent"></div>
 
 </section>
 
@@ -108,22 +82,22 @@
     <div class="stats">
 
         <div class="glass">
-            <h2 class="counter" data-target="15">0</h2>
+            <h2 class="counter" data-target="15">5</h2>
             <p>Projects</p>
         </div>
 
         <div class="glass">
-            <h2 class="counter" data-target="8">0</h2>
+            <h2 class="counter" data-target="8">3</h2>
             <p>Certificates</p>
         </div>
 
         <div class="glass">
-            <h2 class="counter" data-target="5">0</h2>
+            <h2 class="counter" data-target="5">5</h2>
             <p>Competitions</p>
         </div>
 
         <div class="glass">
-            <h2 class="counter" data-target="100">0</h2>
+            <h2 class="counter" data-target="100">200</h2>
             <p>Learning Hours</p>
         </div>
 
@@ -137,30 +111,12 @@
 
     <table>
 
-        <tr>
-            <th>Subject</th>
-            <th>Grade</th>
-        </tr>
+    <tr>
+    <th>Subject</th>
+    <th>Grade</th>
+    </tr>
 
-        <tr>
-            <td>Mathematics</td>
-            <td>A+</td>
-        </tr>
-
-        <tr>
-            <td>Science</td>
-            <td>A</td>
-        </tr>
-
-        <tr>
-            <td>English</td>
-            <td>A</td>
-        </tr>
-
-        <tr>
-            <td>Computer Science</td>
-            <td>A+</td>
-        </tr>
+    <tbody id="academicTable"></tbody>
 
     </table>
 
@@ -170,26 +126,7 @@
 
     <h2>Skills</h2>
 
-    <div class="skill">
-        <p>Mental Math</p>
-        <div class="bar">
-            <div class="fill skill1"></div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <p>Coding</p>
-        <div class="bar">
-            <div class="fill skill2"></div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <p>Problem Solving</p>
-        <div class="bar">
-            <div class="fill skill3"></div>
-        </div>
-    </div>
+    <div id="skillsContainer"></div>
 
 </section>
 
@@ -197,25 +134,7 @@
 
     <h2>Achievement Timeline</h2>
 
-    <div class="timeline">
-
-        <div class="timeline-item">
-            🏆 Gold Medal – International Abacus Olympiad
-        </div>
-
-        <div class="timeline-item">
-            🥈 Silver Medal – Essay Competition
-        </div>
-
-        <div class="timeline-item">
-            🔬 Top 20 – Young Scientist Award
-        </div>
-
-        <div class="timeline-item">
-            🎤 Bronze Medal – Student Speaker Competition
-        </div>
-
-    </div>
+    <div class="timeline" id="timelineContainer"></div>
 
 </section>
 
@@ -223,48 +142,7 @@
 
     <h2>Project Showcase</h2>
 
-    <div class="project-grid">
-
-        <div class="card">
-
-            <img src="images/irrigation.jpg">
-
-            <h3>Smart Irrigation System</h3>
-
-            <p>
-                Uses soil moisture sensors
-                to save water automatically.
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <img src="images/temple.jpg">
-
-            <h3>Temple Adventure</h3>
-
-            <p>
-                Scratch game with levels,
-                scores and rewards.
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <img src="images/climate.jpg">
-
-            <h3>Climate Awareness Website</h3>
-
-            <p>
-                Educational website built
-                using HTML & CSS.
-            </p>
-
-        </div>
-
-    </div>
+    <div class="project-grid" id="projectContainer"></div>
 
 </section>
 
@@ -272,15 +150,7 @@
 
     <h2>Certificates Gallery</h2>
 
-    <div class="gallery">
-
-        <img src="images/abacus.jpg">
-
-        <img src="images/essay.jpg">
-
-        <img src="images/speaker.jpg">
-
-    </div>
+    <div class="gallery" id="certificateContainer"></div>
 
 </section>
 

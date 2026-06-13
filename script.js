@@ -1,102 +1,275 @@
-// =========================
-// TYPING ANIMATION
-// =========================
+
+
+let portfolioData;
+
+// LOAD JSON
+
+fetch("portfolio.json")
+.then(response => response.json())
+.then(data => {
+
+    portfolioData = data;
+
+    loadPortfolio();
+
+    startTyping();
+
+    startCounters();
+
+});
+
+// ====================
+// LOAD CONTENT
+// ====================
+
+function loadPortfolio(){
+
+document.getElementById("logoName").innerText =
+portfolioData.name;
+
+document.getElementById("heroGrade").innerText =
+portfolioData.grade + " | " +
+portfolioData.school;
+
+document.getElementById("heroAbout").innerText =
+portfolioData.about;
+
+
+// ABOUT
+
+document.getElementById("aboutContent").innerHTML = `
+
+<h3>${portfolioData.name}</h3>
+
+<p><strong>DOB:</strong>
+${portfolioData.personal.dob}</p>
+
+<p><strong>City:</strong>
+${portfolioData.personal.city}</p>
+
+<p><strong>Career Goal:</strong>
+${portfolioData.personal.careerGoal}</p>
+
+<p>${portfolioData.about}</p>
+
+`;
+
+
+// ACADEMICS
+
+let academicHTML = "";
+
+portfolioData.academics.forEach(item => {
+
+academicHTML += `
+
+<tr>
+<td>${item.subject}</td>
+<td>${item.grade}</td>
+</tr>
+
+`;
+
+});
+
+document.getElementById("academicTable")
+.innerHTML = academicHTML;
+
+
+// SKILLS
+
+let skillsHTML = "";
+
+portfolioData.skills.forEach(skill => {
+
+skillsHTML += `
+
+<div class="skill">
+
+<p>${skill.name}</p>
+
+<div class="bar">
+
+<div class="fill"
+style="width:${skill.level}%">
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("skillsContainer")
+.innerHTML = skillsHTML;
+
+
+// TIMELINE
+
+let timelineHTML = "";
+
+portfolioData.timeline.forEach(item => {
+
+timelineHTML += `
+
+<div class="timeline-item">
+
+${item}
+
+</div>
+
+`;
+
+});
+
+document.getElementById("timelineContainer")
+.innerHTML = timelineHTML;
+
+
+// PROJECTS
+
+let projectHTML = "";
+
+portfolioData.projects.forEach(project => {
+
+projectHTML += `
+
+<div class="card">
+
+<img src="${project.image}">
+
+<h3>${project.title}</h3>
+
+<p>${project.description}</p>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("projectContainer")
+.innerHTML = projectHTML;
+
+
+// CERTIFICATES
+
+let certificateHTML = "";
+
+portfolioData.certificates.forEach(certificate => {
+
+certificateHTML += `
+
+<img src="${certificate}">
+
+`;
+
+});
+
+document.getElementById("certificateContainer")
+.innerHTML = certificateHTML;
+
+}
+
+
+// ====================
+// TYPING EFFECT
+// ====================
+
+function startTyping(){
 
 const text =
-"Aarav Sharma | Future Aerospace Engineer";
+portfolioData.name +
+" | " +
+portfolioData.title;
 
 let i = 0;
 
-function typeWriter() {
+function typeWriter(){
 
-    if (i < text.length) {
+if(i < text.length){
 
-        document.getElementById("typing").innerHTML += text.charAt(i);
+document.getElementById("typing")
+.innerHTML += text.charAt(i);
 
-        i++;
+i++;
 
-        setTimeout(typeWriter, 70);
+setTimeout(typeWriter,70);
 
-    }
+}
 
 }
 
 typeWriter();
 
+}
 
-// =========================
-// ANIMATED COUNTERS
-// =========================
+
+// ====================
+// COUNTERS
+// ====================
+
+function startCounters(){
 
 const counters =
 document.querySelectorAll(".counter");
 
 counters.forEach(counter => {
 
-    const updateCounter = () => {
+const target =
++counter.getAttribute("data-target");
 
-        const target =
-        +counter.getAttribute("data-target");
+let count = 0;
 
-        const current =
-        +counter.innerText;
+const updateCounter = () => {
 
-        const increment =
-        Math.ceil(target / 100);
+if(count < target){
 
-        if (current < target) {
+count += Math.ceil(target/100);
 
-            counter.innerText =
-            current + increment;
+counter.innerText = count;
 
-            setTimeout(updateCounter, 20);
+setTimeout(updateCounter,20);
 
-        }
+}else{
 
-        else {
+counter.innerText = target;
 
-            counter.innerText = target;
+}
 
-        }
+};
 
-    };
-
-    updateCounter();
+updateCounter();
 
 });
 
+}
 
-// =========================
-// DARK MODE TOGGLE
-// =========================
+
+// ====================
+// DARK MODE
+// ====================
 
 const themeToggle =
 document.getElementById("themeToggle");
 
-themeToggle.addEventListener("click", () => {
+themeToggle.addEventListener("click",()=>{
 
-    document.body.classList.toggle("light");
+document.body.classList.toggle("light");
 
-    if (
-        document.body.classList.contains("light")
-    ) {
-
-        themeToggle.innerHTML = "☀️";
-
-    }
-
-    else {
-
-        themeToggle.innerHTML = "🌙";
-
-    }
+themeToggle.innerHTML =
+document.body.classList.contains("light")
+? "☀️"
+: "🌙";
 
 });
 
 
-// =========================
-// MOBILE MENU
-// =========================
+// ====================
+// HAMBURGER
+// ====================
 
 const hamburger =
 document.querySelector(".hamburger");
@@ -104,201 +277,35 @@ document.querySelector(".hamburger");
 const menu =
 document.querySelector(".menu");
 
-hamburger.addEventListener("click", () => {
+hamburger.addEventListener("click",()=>{
 
-    menu.classList.toggle("show");
+menu.classList.toggle("show");
 
 });
 
 
-// =========================
-// CONTACT FORM VALIDATION
-// =========================
+// ====================
+// FORM VALIDATION
+// ====================
 
 const form =
 document.getElementById("contactForm");
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit",(e)=>{
 
-    e.preventDefault();
+e.preventDefault();
 
-    const name =
-    document.getElementById("name");
-
-    const email =
-    document.getElementById("email");
-
-    const message =
-    document.getElementById("message");
-
-    const error =
-    document.getElementById("error");
-
-    if (
-        name.value.trim() === "" ||
-        email.value.trim() === "" ||
-        message.value.trim() === ""
-    ) {
-
-        error.innerHTML =
-        "⚠ Please fill all fields.";
-
-        error.style.color = "red";
-
-        return;
-
-    }
-
-    const emailPattern =
-    /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-
-    if (
-        !email.value.match(emailPattern)
-    ) {
-
-        error.innerHTML =
-        "⚠ Enter a valid email address.";
-
-        error.style.color = "red";
-
-        return;
-
-    }
-
-    error.innerHTML =
-    "✅ Message sent successfully!";
-
-    error.style.color =
-    "lightgreen";
-
-    form.reset();
+document.getElementById("error")
+.innerHTML =
+"✅ Message Sent Successfully";
 
 });
 
 
-// =========================
-// SMOOTH SCROLL NAVBAR
-// =========================
+// ====================
+// FOOTER YEAR
+// ====================
 
-document
-.querySelectorAll('a[href^="#"]')
-.forEach(anchor => {
-
-    anchor.addEventListener(
-        "click",
-        function(e) {
-
-            e.preventDefault();
-
-            const target =
-            document.querySelector(
-                this.getAttribute("href")
-            );
-
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-    );
-
-});
-
-
-// =========================
-// SCROLL REVEAL ANIMATION
-// =========================
-
-const revealElements =
-document.querySelectorAll(
-    ".timeline-item, .card, .glass, .testimonial"
-);
-
-const revealObserver =
-new IntersectionObserver(
-(entries) => {
-
-    entries.forEach(entry => {
-
-        if (
-            entry.isIntersecting
-        ) {
-
-            entry.target.style.opacity = "1";
-
-            entry.target.style.transform =
-            "translateY(0)";
-
-        }
-
-    });
-
-},
-{
-    threshold: 0.2
-}
-);
-
-revealElements.forEach(el => {
-
-    el.style.opacity = "0";
-
-    el.style.transform =
-    "translateY(50px)";
-
-    el.style.transition =
-    "all 0.8s ease";
-
-    revealObserver.observe(el);
-
-});
-
-
-// =========================
-// CERTIFICATE IMAGE ZOOM
-// =========================
-
-const certificates =
-document.querySelectorAll(
-".gallery img"
-);
-
-certificates.forEach(img => {
-
-    img.addEventListener(
-        "click",
-        () => {
-
-            img.classList.toggle(
-                "activeZoom"
-            );
-
-        }
-    );
-
-});
-
-
-// =========================
-// CURRENT YEAR FOOTER
-// =========================
-
-const footer =
-document.querySelector("footer p");
-
-footer.innerHTML =
+document.querySelector("footer p")
+.innerHTML =
 `© ${new Date().getFullYear()} GEMMA Student Portfolio`;
-
-
-// =========================
-// PAGE LOADER EFFECT
-// =========================
-
-window.addEventListener(
-"load",
-() => {
-
-    document.body.style.opacity = "1";
-
-}
-);

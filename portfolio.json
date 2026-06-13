@@ -1,0 +1,87 @@
+{
+  "name": "Aarav Sharma",
+  "title": "Grade 8 | Sunrise International School - Passionate about Mathematics, Coding, Robotics and Scientific Innovation",
+  "grade": "Grade 8",
+  "school": "Sunrise International School",
+
+  "about": "Passionate about Mathematics, Coding, Robotics and Scientific Innovation.",
+
+  "personal": {
+    "dob": "12 May 2012",
+    "city": "New Delhi, India",
+    "careerGoal": "Aerospace Engineer"
+  },
+
+  "stats": {
+    "projects": 5,
+    "certificates": 3,
+    "competitions": 5,
+    "hours": 200
+  },
+
+  "academics": [
+    {
+      "subject": "Mathematics",
+      "grade": "A+"
+    },
+    {
+      "subject": "Statistics",
+      "grade": "A"
+    },
+    {
+      "subject": "Programming",
+      "grade": "A+"
+    },
+    {
+      "subject": "Data Science",
+      "grade": "A"
+    }
+  ],
+
+  "skills": [
+    {
+      "name": "Mental Math",
+
+      "level": 95
+    },
+    {
+      "name": "Coding",
+      "level": 90
+    },
+    {
+      "name": "Problem Solving",
+      "level": 85
+    }
+  ],
+
+  "timeline": [
+    "🏆 Gold Medal – International Abacus Olympiad",
+    "🥈 Silver Medal – Essay Competition",
+    "🎤 Bronze Medal – Student Speaker Competition",
+    "🔬 Top 20 – Young Scientist Award"
+  ],
+
+  "projects": [
+    {
+      "title": "Smart Irrigation System",
+      "image": "images/irrigation.jpg",
+      "description": "Uses soil moisture sensors to save water automatically."
+    },
+    {
+      "title": "Temple Adventure",
+      "image": "images/temple.jpg",
+      "description": "Scratch game with levels, scores and rewards."
+    },
+    {
+      "title": "Climate Awareness Website",
+      "image": "images/climate.jpg",
+      "description": "Educational website built using HTML & CSS."
+    }
+  ],
+
+  "certificates": [
+    "images/abacus.jpg",
+    "images/essay.jpg",
+    "images/speaker.jpg"
+  ]
+}
